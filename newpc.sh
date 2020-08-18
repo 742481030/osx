@@ -231,7 +231,7 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
 
   sudo languagesetup
-  4
+  
   
 
 
