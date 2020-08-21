@@ -65,6 +65,20 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 #############################################
 
 # 关闭系统设置面板
+exec osascript <<EOF
+      tell application "System Events"
+	tell application "System Preferences"
+		activate
+		set current pane to pane "com.apple.preference.mouse"
+	end tell
+	delay 0.5
+	tell process "System Preferences" to tell window 1 to tell checkbox 1
+		if value is 1 then click
+	end tell
+	tell application "System Preferences" to quit
+end tell
+
+EOF
 osascript -e 'tell application "System Preferences" to quit'
 defaults write NSGlobalDomain com.apple.swipescrolldirection 0
 
