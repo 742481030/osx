@@ -64,21 +64,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ### 系统设置 https://github.com/742481030/osx/newpc.sh
 #############################################
 
-# 关闭系统设置面板
-exec osascript <<EOF
-      tell application "System Events"
-	tell application "System Preferences"
-		activate
-		set current pane to pane "com.apple.preference.mouse"
-	end tell
-	delay 0.5
-	tell process "System Preferences" to tell window 1 to tell checkbox 1
-		if value is 1 then click
-	end tell
-	tell application "System Preferences" to quit
-end tell
-
-EOF
+#
 osascript -e 'tell application "System Preferences" to quit'
 defaults write NSGlobalDomain com.apple.swipescrolldirection 0
 
@@ -247,6 +233,25 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 # Disable the all too sensitive backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
+
+
+ #关闭系统设置面板
+ sleep 5
+ echo "会弹出系统授权请全部同意"
+exec osascript <<EOF
+      tell application "System Events"
+	tell application "System Preferences"
+		activate
+		set current pane to pane "com.apple.preference.mouse"
+	end tell
+	delay 0.5
+	tell process "System Preferences" to tell window 1 to tell checkbox 1
+		if value is 1 then click
+	end tell
+	tell application "System Preferences" to quit
+end tell
+
+EOF
 
   sudo languagesetup
   
