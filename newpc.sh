@@ -250,7 +250,38 @@ exec osascript <<EOF
 	end tell
 	tell application "System Preferences" to quit
 end tell
-
+tell application "System Events"
+	tell application "System Preferences"
+		activate
+		set current pane to pane "共享"
+	end tell
+	delay 0.5
+	tell process "System Preferences"
+		tell window 1
+			tell group 1
+				tell scroll area 1
+					tell table 1
+						tell row 5 to tell checkbox 1
+							if value is 0 then click
+							
+						end tell
+						tell row 6 to tell checkbox 1
+							if value is 0 then click
+							
+						end tell
+						say "已经开启远程共享"
+						#click checkbox 1 of row 5
+						#click checkbox 1 of row 6
+						#entire contents -- 获取所有 UI 元素
+					end tell
+					
+				end tell
+			end tell
+			#if value is 1 then click
+		end tell
+	end tell
+	tell application "System Preferences" to quit
+end tell
 EOF
 
   sudo languagesetup
