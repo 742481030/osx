@@ -78,7 +78,7 @@ sudo spctl --master-disable
 ##################
 networksetup -setdnsservers Wi-Fi 223.5.5.5 114.114.114.114 8.8.8.8 2400:3200::1 2001:4860:4860::8888
 networksetup -setdnsservers Ethernet  223.5.5.5 114.114.114.114 8.8.8.8 2400:3200::1 2001:4860:4860::8888
-networksetup -setdnsservers PPPoe  223.5.5.5 114.114.114.114 8.8.8.8 2400:3200::1 2001:4860:4860::8888
+
 
 #在登录界面,单击时钟时显示IP地址，主机名，操作系统版本等
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -236,13 +236,16 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 
 
  #关闭系统设置面板
- sleep 5
- echo "会弹出系统授权请全部同意"
+
+ say "会弹出系统授权请全部同意"
+  sleep 5
 exec osascript <<EOF
       tell application "System Events"
 	tell application "System Preferences"
 		activate
+		delay 3
 		set current pane to pane "com.apple.preference.mouse"
+		
 	end tell
 	delay 0.5
 	tell process "System Preferences" to tell window 1 to tell checkbox 1
