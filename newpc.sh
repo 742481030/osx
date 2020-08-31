@@ -248,7 +248,7 @@ exec osascript <<EOF
 	tell process "System Preferences" to tell window 1 to tell checkbox 1
 		if value is 1 then click
 	end tell
-	tell application "System Preferences" to quit
+	#tell application "System Preferences" to quit
 end tell
 tell application "System Events"
 	tell application "System Preferences"
