@@ -262,6 +262,10 @@ tell application "System Events"
 				tell scroll area 1
 					tell table 1
 						tell row 5 to tell checkbox 1
+							if value is 1 then click
+							
+						end tell
+						tell row 1 to tell checkbox 1
 							if value is 0 then click
 							
 						end tell
