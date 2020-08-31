@@ -1,1 +1,1 @@
-curl -sSO https://cdn.jsdelivr.net/gh/742481030/osx@master/newpc.sh && bash newpc.sh
+curl -sSO https://cdn.jsdelivr.net/gh/742481030/osx@0.3/newpc.sh && bash newpc.sh
