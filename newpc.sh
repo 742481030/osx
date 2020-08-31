@@ -218,13 +218,13 @@ defaults write ~/Library/Preferences/.GlobalPreferences.plist com.apple.swipescr
 ###############################################################################
 
 # 关闭应用商店自动更新
-defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool false
 
 # 后台下载可用更新
-defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
+defaults write com.apple.SoftwareUpdate AutomaticDownload -int 0
 
-# 安装系统数据文件和安全更新
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+# 不安装系统数据文件和安全更新
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 0
 
 ###############################################################################
 # Google Chrome                                                               #
@@ -255,7 +255,7 @@ tell application "System Events"
 		activate
 		set current pane to pane "共享"
 	end tell
-	delay 0.5
+	delay 2
 	tell process "System Preferences"
 		tell window 1
 			tell group 1
